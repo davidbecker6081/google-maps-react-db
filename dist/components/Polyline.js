@@ -135,10 +135,12 @@
     }, {
       key: 'componentDidUpdate',
       value: function componentDidUpdate(prevProps) {
-        if (this.polyline) {
-          this.polyline.setMap(null);
+        if (this.props.map !== prevProps.map) {
+          if (this.polyline) {
+            this.polyline.setMap(null);
+          }
+          this.renderPolyline();
         }
-        this.renderPolyline();
       }
     }, {
       key: 'componentWillUnmount',
