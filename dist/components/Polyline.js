@@ -117,7 +117,7 @@
     return wrappedPromise;
   };
 
-  var Polyline = exports.Polyline = (function (_React$Component) {
+  var Polyline = exports.Polyline = function (_React$Component) {
     _inherits(Polyline, _React$Component);
 
     function Polyline() {
@@ -135,10 +135,12 @@
     }, {
       key: 'componentDidUpdate',
       value: function componentDidUpdate(prevProps) {
-        if (this.polyline) {
-          this.polyline.setMap(null);
+        if (this.props.map !== prevProps.map) {
+          if (this.polyline) {
+            this.polyline.setMap(null);
+          }
+          this.renderPolyline();
         }
-        this.renderPolyline();
       }
     }, {
       key: 'componentWillUnmount',
@@ -206,7 +208,7 @@
     }]);
 
     return Polyline;
-  })(_react2.default.Component);
+  }(_react2.default.Component);
 
   Polyline.propTypes = {
     path: _propTypes2.default.array,

@@ -24,12 +24,10 @@ export class Polyline extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.map !== prevProps.map) {
-      if (this.polyline) {
-        this.polyline.setMap(null);
-      }
-      this.renderPolyline();
+    if (this.polyline) {
+      this.polyline.setMap(null);
     }
+    this.renderPolyline();
   }
 
   componentWillUnmount() {
